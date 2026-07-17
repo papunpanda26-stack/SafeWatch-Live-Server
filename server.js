@@ -23,10 +23,13 @@ io.on("connection", (socket) => {
 
     console.log("Device Connected :", socket.id);
 
-    socket.on("camera-frame", (frame) => {
-        socket.broadcast.emit("camera-frame", frame);
-    });
+  socket.on("camera-frame", (frame) => {
 
+    console.log("📷 Camera Frame Received");
+
+    socket.broadcast.emit("camera-frame", frame);
+
+});
     socket.on("disconnect", () => {
         console.log("Device Disconnected :", socket.id);
     });
